@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<!-- FIX LỖI 3: Sửa xmlns:fx bị typo " his/fxml/1" thành đúng "http://javafx.com/fxml/1" -->
+<VBox alignment="CENTER" spacing="15.0" prefWidth="400.0" prefHeight="300.0"
+      style="-fx-background-color: #f4f4f4; -fx-padding: 30;"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.vku.karaoke.client.controller.LoginController">
+
+    <Text text="HỆ THỐNG KARAOKE VKU" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-fill: #2c3e50;"/>
+
+    <GridPane vgap="10" hgap="10" alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="80"/>
+            <ColumnConstraints halignment="LEFT" minWidth="180"/>
+        </columnConstraints>
+        <children>
+            <Label text="Tài khoản:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtUsername" promptText="Nhập tài khoản..." GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Mật khẩu:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="txtPassword" promptText="Nhập mật khẩu..." GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        </children>
+    </GridPane>
+
+    <Button text="Đăng Nhập Hệ Thống" onAction="#handleLogin"
+            style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;"
+            prefWidth="200.0"/>
+
+    <Label fx:id="lblError" text="" style="-fx-text-fill: red; -fx-font-weight: bold;"/>
+</VBox>

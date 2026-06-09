@@ -1,0 +1,10 @@
+BH001|Noi Nay Co Anh|Son Tung M-TP|Pop
+BH002|Duyen Phan|Nhu Quynh|Tru Tinh
+BH003|Lac Troi|Son Tung M-TP|Pop
+BH004|Em Cua Ngay Hom Qua|Son Tung M-TP|Pop
+BH005|Vung La Me Bay|Nhu Quynh|Tru Tinh
+BH006|Kiep Do Den|Duy Manh|Nhac Tre
+BH007|Anh Nang Cua Anh|Duc Phuc|Ballad
+BH008|Ngay Dau Tien|Duc Phuc|Ballad
+BH009|Gat Di Nuoc Mat|Noo Phuoc Thinh|Dance
+BH010|Sau Tim Thiep Hong|Quang Le|Tru Tinh

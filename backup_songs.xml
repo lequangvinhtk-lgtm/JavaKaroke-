@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<KaraokeSongs>
+    <Song id="BH001">
+        <Title>Noi Nay Co Anh</Title>
+        <Artist>Son Tung M-TP</Artist>
+        <Genre>Pop</Genre>
+    </Song>
+    <Song id="BH002">
+        <Title>Duyen Phan</Title>
+        <Artist>Nhu Quynh</Artist>
+        <Genre>Tru Tinh</Genre>
+    </Song>
+    <Song id="BH003">
+        <Title>Lac Troi</Title>
+        <Artist>Son Tung M-TP</Artist>
+        <Genre>Pop</Genre>
+    </Song>
+    <Song id="BH004">
+        <Title>Em Cua Ngay Hom Qua</Title>
+        <Artist>Son Tung M-TP</Artist>
+        <Genre>Pop</Genre>
+    </Song>
+    <Song id="BH005">
+        <Title>Vung La Me Bay</Title>
+        <Artist>Nhu Quynh</Artist>
+        <Genre>Tru Tinh</Genre>
+    </Song>
+    <Song id="BH006">
+        <Title>Kiep Do Den</Title>
+        <Artist>Duy Manh</Artist>
+        <Genre>Nhac Tre</Genre>
+    </Song>
+    <Song id="BH007">
+        <Title>Anh Nang Cua Anh</Title>
+        <Artist>Duc Phuc</Artist>
+        <Genre>Ballad</Genre>
+    </Song>
+    <Song id="BH008">
+        <Title>Ngay Dau Tien</Title>
+        <Artist>Duc Phuc</Artist>
+        <Genre>Ballad</Genre>
+    </Song>
+    <Song id="BH009">
+        <Title>Gat Di Nuoc Mat</Title>
+        <Artist>Noo Phuoc Thinh</Artist>
+        <Genre>Dance</Genre>
+    </Song>
+    <Song id="BH010">
+        <Title>Sau Tim Thiep Hong</Title>
+        <Artist>Quang Le</Artist>
+        <Genre>Tru Tinh</Genre>
+    </Song>
+</KaraokeSongs>
