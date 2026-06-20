@@ -3,5 +3,4 @@ target/
 *.iml
 *.class
 .DS_Store
-backup_songs.txt
 backup_songs.xml
