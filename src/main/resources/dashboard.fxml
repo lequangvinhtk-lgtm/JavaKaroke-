@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.vku.karaoke.client.controller.KaraokeDashboardController" styleClass="dashboard-root">
+    <top>
+        <HBox alignment="CENTER_LEFT" styleClass="top-bar">
+            <VBox spacing="2">
+                <Label text="🎤 Karaoke Song Management" styleClass="header-title"/>
+                <Label text="Quản lý bài hát, playlist, tìm kiếm, xuất TXT/XML" styleClass="header-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblWelcome" text="Xin chào" styleClass="welcome"/>
+            <Button text="⟳ Làm mới" onAction="#handleRefresh" styleClass="ghost-button"/>
+            <Button text="Đăng xuất" onAction="#handleLogout" styleClass="danger-button"/>
+        </HBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Quản lý bài hát">
+                <BorderPane>
+                    <top>
+                        <VBox spacing="12" styleClass="content-box">
+                            <VBox spacing="12" styleClass="card">
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <TextField fx:id="txtSearch" promptText="Tìm theo mã, tên bài hát, ca sĩ hoặc thể loại..." HBox.hgrow="ALWAYS"/>
+                                    <Button text="Tìm kiếm" onAction="#handleSearch" styleClass="primary-button"/>
+                                    <Button text="Xuất TXT" onAction="#handleExportTxt"/>
+                                    <Button fx:id="btnImportTxt" text="Nhập TXT" onAction="#handleImportTxt" styleClass="warning-button"/>
+                                    <Button text="Xuất XML" onAction="#handleExportXml" styleClass="success-button"/>
+                                </HBox>
+                                <GridPane hgap="12" vgap="10">
+                                    <columnConstraints>
+                                        <ColumnConstraints minWidth="90"/>
+                                        <ColumnConstraints hgrow="ALWAYS"/>
+                                        <ColumnConstraints minWidth="90"/>
+                                        <ColumnConstraints hgrow="ALWAYS"/>
+                                    </columnConstraints>
+                                    <Label text="Mã bài hát" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtId" promptText="VD: S001" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                    <Label text="Tên bài hát" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                                    <TextField fx:id="txtTitle" promptText="Nhập tên bài hát" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                                    <Label text="Ca sĩ" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtArtist" promptText="Nhập tên ca sĩ" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                    <Label text="Thể loại" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                                    <TextField fx:id="txtGenre" promptText="Pop, Ballad, Remix..." GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                                </GridPane>
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <Button fx:id="btnAdd" text="＋ Thêm" onAction="#handleInsert" styleClass="primary-button"/>
+                                    <Button fx:id="btnUpdate" text="✎ Sửa" onAction="#handleUpdate" styleClass="warning-button"/>
+                                    <Button fx:id="btnDelete" text="🗑 Xóa" onAction="#handleDelete" styleClass="danger-button"/>
+                                    <Region HBox.hgrow="ALWAYS"/>
+                                    <Button text="Thêm bài đang chọn vào playlist" onAction="#handleAddSongToPlaylist" styleClass="success-button"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </top>
+                    <center>
+                        <VBox spacing="8" styleClass="content-box">
+                            <Label text="Danh sách bài hát" styleClass="section-title"/>
+                            <TableView fx:id="tableSongs" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="colId" text="Mã" prefWidth="110"/>
+                                    <TableColumn fx:id="colTitle" text="Tên bài hát" prefWidth="390"/>
+                                    <TableColumn fx:id="colArtist" text="Ca sĩ" prefWidth="280"/>
+                                    <TableColumn fx:id="colGenre" text="Thể loại" prefWidth="170"/>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </center>
+                </BorderPane>
+            </Tab>
+            <Tab text="Playlist">
+                <BorderPane>
+                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                    <left>
+                        <VBox spacing="12" styleClass="side-box" prefWidth="320">
+                            <Label text="Playlist của tôi" styleClass="section-title"/>
+                            <Label text="Tạo playlist riêng cho tài khoản đang đăng nhập." styleClass="small-note" wrapText="true"/>
+                            <TextField fx:id="txtPlaylistName" promptText="Tên playlist mới"/>
+                            <Button text="＋ Tạo playlist" onAction="#handleCreatePlaylist" maxWidth="Infinity" styleClass="primary-button"/>
+                            <Button text="🗑 Xóa playlist" onAction="#handleDeletePlaylist" maxWidth="Infinity" styleClass="danger-button"/>
+                            <ListView fx:id="listPlaylists" VBox.vgrow="ALWAYS"/>
+                        </VBox>
+                    </left>
+                    <center>
+                        <VBox spacing="12" styleClass="content-box">
+                            <VBox spacing="10" styleClass="card" VBox.vgrow="ALWAYS">
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <VBox>
+                                        <Label text="Bài hát trong playlist" styleClass="section-title"/>
+                                        <Label text="Chọn playlist bên trái để xem danh sách bài hát." styleClass="small-note"/>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS"/>
+                                    <Button text="Xóa bài đang chọn khỏi playlist" onAction="#handleRemoveSongFromPlaylist" styleClass="danger-button"/>
+                                </HBox>
+                                <TableView fx:id="tablePlaylistSongs" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="colPlId" text="Mã" prefWidth="110"/>
+                                        <TableColumn fx:id="colPlTitle" text="Tên bài hát" prefWidth="430"/>
+                                        <TableColumn fx:id="colPlArtist" text="Ca sĩ" prefWidth="280"/>
+                                    </columns>
+                                </TableView>
+                            </VBox>
+                        </VBox>
+                    </center>
+                </BorderPane>
+            </Tab>
+            <Tab text="Lịch sử tìm kiếm">
+                <VBox spacing="12" styleClass="content-box">
+                    <VBox spacing="10" styleClass="card" VBox.vgrow="ALWAYS">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <VBox>
+                                <Label text="Lịch sử tìm kiếm" styleClass="section-title"/>
+                                <Label text="Hệ thống tự lưu từ khóa sau mỗi lần tìm kiếm." styleClass="small-note"/>
+                            </VBox>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="Xóa lịch sử" onAction="#handleClearHistory" styleClass="danger-button"/>
+                        </HBox>
+                        <TableView fx:id="tableHistory" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colKeyword" text="Từ khóa" prefWidth="560"/>
+                                <TableColumn fx:id="colSearchedAt" text="Thời gian tìm kiếm" prefWidth="300"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

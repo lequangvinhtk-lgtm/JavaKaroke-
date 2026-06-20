@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <serverHost>localhost</serverHost>
+    <serverPort>9999</serverPort>
+
+    <dbHost>localhost</dbHost>
+    <dbPort>3306</dbPort>
+    <dbName>karaoke_db</dbName>
+    <dbUser>root</dbUser>
+    <dbPassword>123456</dbPassword>
+</config>
